@@ -14,9 +14,9 @@ export const UPGRADES = [
  {id:'trawlerFleet',name:'Trawler Fleet',description:'+5 Fish/sec per level.',category:'Fish',costType:'fish',baseCost:500,costScaling:2,maxLevel:10,unlock:s=>s.upgrades.harbourShrine>0},
  {id:'deepGate',name:'Deep Gate',description:'Unlock Depth and +1 Depth/sec per level.',category:'Depth',costType:'faith',baseCost:800,costScaling:2,maxLevel:10,unlock:s=>s.stage>=6},
  {id:'abyssalTrawler',name:'Abyssal Trawler',description:'+35% Depth and Fish generation.',category:'Depth',costType:'depth',baseCost:1000,costScaling:2,maxLevel:8,unlock:s=>s.resources.depth>0},
- {id:'dreamNet',name:'Dream Net',description:'Unlock Madness and +0.3 Madness/sec per level.',category:'Madness',costType:'depth',baseCost:5000,costScaling:2.4,maxLevel:8,unlock:s=>s.stage>=7&&s.resources.depth>=1000},
+ {id:'dreamNet',name:'Dream Net',description:'Unlock Madness and +0.8 Madness/sec per level, improved by moonlit and planetary rites.',category:'Madness',costType:'depth',baseCost:5000,costScaling:2.4,maxLevel:8,unlock:s=>s.stage>=7&&s.resources.depth>=1000},
  {id:'moonlitFeeding',name:'Moonlit Feeding Rite',description:'+60% Growth and final chain access.',category:'Ritual',costType:'madness',baseCost:1500,costScaling:2,maxLevel:5,unlock:s=>s.stage>=8},
- {id:'planetaryOffering',name:'Planetary Offering',description:'+100% all production per level.',category:'Madness',costType:'madness',baseCost:10000,costScaling:3,maxLevel:5,unlock:s=>s.stage>=9},
+ {id:'planetaryOffering',name:'Planetary Offering',description:'+100% all production and Madness generation per level.',category:'Madness',costType:'madness',baseCost:10000,costScaling:3,maxLevel:5,unlock:s=>s.stage>=9},
 ];
 export const RELICS = [
  {id:'memoryShell',name:'Memory in the Shell',description:'Start each moult with +100 Fish per level.',cost:1,maxLevel:20},
