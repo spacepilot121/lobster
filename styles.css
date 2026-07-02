@@ -178,6 +178,29 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 .card h3 { margin: 0 0 6px; color: #fff; }
 .card p { margin: 6px 0; color: var(--muted); }
 .card.bought { border-color: var(--gold); }
+.card.complete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-color: var(--gold);
+  background: linear-gradient(90deg, #102a27, #0a2030);
+  padding: 7px 10px;
+  opacity: .72;
+}
+.card.complete h3,
+.card.complete p {
+  margin: 0;
+}
+.card.complete h3 {
+  color: var(--gold);
+  font-size: 14px;
+}
+.card.complete p {
+  flex-shrink: 0;
+  font-size: 11px;
+  text-align: right;
+}
 .role { display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; align-items: center; background: #0a2030; border-radius: 12px; margin: 8px 0; padding: 8px; }
 .log-title { color: var(--gold); font-weight: 900; }
 .log-card p { margin: 6px 0; color: #cfe9e3; font-size: 13px; }
