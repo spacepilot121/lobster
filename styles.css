@@ -220,3 +220,97 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after { animation: none !important; transition: none !important; }
 }
+
+.upgrade-tree {
+  position: relative;
+  min-height: 760px;
+  overflow: auto;
+  border: 2px solid #284f61;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 52%, #244f6344 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 52%, transparent 0 12%, #8f5bc214 13%, transparent 14%, transparent 27%, #1f6f7822 28%, transparent 29%, transparent 43%, #f1b84b18 44%, transparent 45%),
+    linear-gradient(180deg, #071926, #050e16);
+  background-size: 34px 34px, 100% 100%, 100% 100%;
+  padding: 12px;
+}
+
+.upgrade-web {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 620px;
+  pointer-events: none;
+}
+
+.upgrade-web line {
+  stroke: #31566a;
+  stroke-width: .7;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 4px #020a10);
+}
+
+.upgrade-web line.lit {
+  stroke: var(--gold);
+  stroke-width: 1.1;
+}
+
+.upgrade-node {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: 168px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border: 2px solid #31566a;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #0d2535f2, #071926f2);
+  box-shadow: 0 5px 0 #020a10, 0 0 16px #020a1088;
+  padding: 9px;
+}
+
+.upgrade-node h3 {
+  margin: 0 0 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.upgrade-node p {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.upgrade-node small,
+.upgrade-node em {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--gold);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.upgrade-node button {
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 8px;
+  font-size: 11px;
+}
+
+.upgrade-node.bought { border-color: var(--gold); }
+.upgrade-node.complete { opacity: .72; }
+.upgrade-node.cat-feed { border-color: #63b381; }
+.upgrade-node.cat-cult,
+.upgrade-node.cat-faith { border-color: var(--purple); }
+.upgrade-node.cat-automation { border-color: #65bdd8; }
+.upgrade-node.cat-depth { border-color: #4788d9; }
+.upgrade-node.cat-madness,
+.upgrade-node.cat-ritual { border-color: #c36ad5; }
+
+@media (max-width: 560px) {
+  .upgrade-tree { min-width: 640px; }
+}
