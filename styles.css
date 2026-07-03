@@ -228,10 +228,11 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   border: 2px solid #284f61;
   border-radius: 18px;
   background:
-    radial-gradient(circle at 50% 52%, #244f6344 0 2px, transparent 3px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px),
+    linear-gradient(180deg, #ffffff08 1px, transparent 1px),
     radial-gradient(circle at 50% 52%, transparent 0 12%, #8f5bc214 13%, transparent 14%, transparent 27%, #1f6f7822 28%, transparent 29%, transparent 43%, #f1b84b18 44%, transparent 45%),
     linear-gradient(180deg, #071926, #050e16);
-  background-size: 34px 34px, 100% 100%, 100% 100%;
+  background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%;
   padding: 12px;
 }
 
@@ -246,7 +247,7 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
 
 .upgrade-web line {
   stroke: #31566a;
-  stroke-width: .7;
+  stroke-width: .8;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   filter: drop-shadow(0 0 4px #020a10);
@@ -254,38 +255,80 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
 
 .upgrade-web line.lit {
   stroke: var(--gold);
-  stroke-width: 1.1;
+  stroke-width: 1.2;
 }
 
 .upgrade-node {
   position: absolute;
   left: calc(var(--x) * 1%);
   top: calc(var(--y) * 1%);
-  width: 168px;
   transform: translate(-50%, -50%);
   z-index: 1;
-  border: 2px solid #31566a;
-  border-radius: 16px;
-  background: linear-gradient(180deg, #0d2535f2, #071926f2);
-  box-shadow: 0 5px 0 #020a10, 0 0 16px #020a1088;
-  padding: 9px;
 }
 
-.upgrade-node h3 {
+.upgrade-node[open] { z-index: 5; }
+.upgrade-node summary { list-style: none; }
+.upgrade-node summary::-webkit-details-marker { display: none; }
+
+.upgrade-node summary {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 3px solid #31566a;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, #ffffff33, transparent 28%), linear-gradient(180deg, #123347, #071926);
+  box-shadow: 0 5px 0 #020a10, 0 0 16px #020a1088;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.node-icon { font-size: 26px; line-height: 1; }
+.node-level {
+  position: absolute;
+  right: -8px;
+  bottom: -6px;
+  min-width: 30px;
+  border: 2px solid #071926;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #071926;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  padding: 4px 5px;
+  text-align: center;
+}
+
+.node-popover {
+  position: absolute;
+  left: 50%;
+  top: 64px;
+  width: 190px;
+  transform: translateX(-50%);
+  border: 2px solid #31566a;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #0d2535fb, #071926fb);
+  box-shadow: 0 6px 0 #020a10, 0 0 22px #020a10;
+  padding: 10px;
+}
+
+.node-popover h3 {
   margin: 0 0 5px;
   color: #fff;
   font-size: 14px;
 }
 
-.upgrade-node p {
+.node-popover p {
   margin: 0 0 6px;
   color: var(--muted);
-  font-size: 11px;
-  line-height: 1.25;
+  font-size: 12px;
+  line-height: 1.3;
 }
 
-.upgrade-node small,
-.upgrade-node em {
+.node-popover small,
+.node-popover em {
   display: block;
   margin-bottom: 7px;
   color: var(--gold);
@@ -294,22 +337,25 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   font-weight: 800;
 }
 
-.upgrade-node button {
+.node-popover button {
   width: 100%;
   min-height: 36px;
   padding: 7px 8px;
   font-size: 11px;
 }
 
-.upgrade-node.bought { border-color: var(--gold); }
-.upgrade-node.complete { opacity: .72; }
-.upgrade-node.cat-feed { border-color: #63b381; }
-.upgrade-node.cat-cult,
-.upgrade-node.cat-faith { border-color: var(--purple); }
-.upgrade-node.cat-automation { border-color: #65bdd8; }
-.upgrade-node.cat-depth { border-color: #4788d9; }
-.upgrade-node.cat-madness,
-.upgrade-node.cat-ritual { border-color: #c36ad5; }
+.upgrade-node.bought summary { border-color: var(--gold); }
+.upgrade-node.affordable summary { box-shadow: 0 5px 0 #020a10, 0 0 16px #f1b84b66; }
+.upgrade-node.complete { opacity: .82; }
+.upgrade-node.complete summary { background: linear-gradient(180deg, #264536, #102a27); }
+.upgrade-node.cat-feed summary { border-color: #63b381; }
+.upgrade-node.cat-cult summary,
+.upgrade-node.cat-faith summary { border-color: var(--purple); }
+.upgrade-node.cat-tank summary { border-color: #9fc8c2; }
+.upgrade-node.cat-automation summary { border-color: #65bdd8; }
+.upgrade-node.cat-depth summary { border-color: #4788d9; }
+.upgrade-node.cat-madness summary,
+.upgrade-node.cat-ritual summary { border-color: #c36ad5; }
 
 @media (max-width: 560px) {
   .upgrade-tree { min-width: 640px; }
