@@ -223,16 +223,17 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
 
 .upgrade-tree {
   position: relative;
-  min-height: 760px;
+  min-height: 920px;
   overflow: auto;
   border: 2px solid #284f61;
   border-radius: 18px;
   background:
     linear-gradient(90deg, #ffffff08 1px, transparent 1px),
     linear-gradient(180deg, #ffffff08 1px, transparent 1px),
-    radial-gradient(circle at 50% 52%, transparent 0 12%, #8f5bc214 13%, transparent 14%, transparent 27%, #1f6f7822 28%, transparent 29%, transparent 43%, #f1b84b18 44%, transparent 45%),
+    radial-gradient(ellipse at 50% 100%, #5f3f1c44 0 10%, transparent 38%),
+    linear-gradient(90deg, transparent 0 48%, #5f3f1c55 49% 51%, transparent 52% 100%),
     linear-gradient(180deg, #071926, #050e16);
-  background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%;
+  background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%, 100% 100%;
   padding: 12px;
 }
 
@@ -245,17 +246,18 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   pointer-events: none;
 }
 
-.upgrade-web line {
-  stroke: #31566a;
-  stroke-width: .8;
+.upgrade-branches path {
+  fill: none;
+  stroke: #6b4a24;
+  stroke-width: 4.5;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
-  filter: drop-shadow(0 0 4px #020a10);
+  filter: drop-shadow(0 2px 0 #020a10);
 }
 
-.upgrade-web line.lit {
-  stroke: var(--gold);
-  stroke-width: 1.2;
+.upgrade-branches path.lit {
+  stroke: #d79a3d;
+  stroke-width: 5.5;
 }
 
 .upgrade-node {
