@@ -1,6 +1,6 @@
 import {CONFIG} from './config.js';import {UPGRADES,RELICS,upgradeCost} from './upgrades.js';import {RITUALS} from './rituals.js';import {ACHIEVEMENTS} from './achievements.js';import {fmt} from './utils.js';import {getStage} from './state.js';
 let lastResources='',lastStatus='',lastTabs='',lastPanel='',lastLog='';
-function bindPress(el,fn){if(!el)return; let lastPointer=0; const run=e=>{if(el.disabled)return; fn(e);}; el.addEventListener('pointerup',e=>{if(e.button!==undefined&&e.button!==0)return; e.preventDefault(); lastPointer=Date.now(); run(e);},{passive:false}); el.addEventListener('click',e=>{if(Date.now()-lastPointer<500){e.preventDefault(); return;} run(e);});}
+function bindPress(el,fn){if(!el)return; let touchHandled=0; const run=e=>{if(el.disabled)return; fn(e); el.blur?.();}; el.addEventListener('pointerup',e=>{if(e.pointerType==='mouse')return; if(e.button!==undefined&&e.button!==0)return; e.preventDefault(); touchHandled=Date.now(); run(e);},{passive:false}); el.addEventListener('click',e=>{if(Date.now()-touchHandled<700){e.preventDefault(); return;} run(e);});}
 export function render(state, actions){
  const $=id=>document.getElementById(id), inc=actions.income();
  const resources=['fish','offerings','faith','shell','depth','madness'].map(r=>`${r}:${Math.floor(state.resources[r]||0)}`).join('|');
