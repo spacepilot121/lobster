@@ -221,10 +221,17 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   *, ::before, ::after { animation: none !important; transition: none !important; }
 }
 
+.upgrade-layout {
+  display: grid;
+  gap: 14px;
+}
+
 .upgrade-tree {
   position: relative;
+  width: 100%;
   min-height: 920px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   border: 2px solid #284f61;
   border-radius: 18px;
   background:
@@ -242,7 +249,6 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   inset: 0;
   width: 100%;
   height: 100%;
-  min-width: 620px;
   pointer-events: none;
 }
 
@@ -268,16 +274,13 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   z-index: 1;
 }
 
-.upgrade-node[open] { z-index: 5; }
-.upgrade-node summary { list-style: none; }
-.upgrade-node summary::-webkit-details-marker { display: none; }
-
-.upgrade-node summary {
-  position: relative;
+.upgrade-node {
   display: grid;
   place-items: center;
   width: 58px;
   height: 58px;
+  min-height: 58px;
+  padding: 0;
   border: 3px solid #31566a;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 25%, #ffffff33, transparent 28%), linear-gradient(180deg, #123347, #071926);
@@ -285,6 +288,29 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   cursor: pointer;
   touch-action: manipulation;
 }
+
+.upgrade-node.selected { z-index: 5; }
+.upgrade-node.selected,
+.upgrade-node:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.upgrade-details {
+  border: 2px solid #31566a;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #0d2535fb, #071926fb);
+  box-shadow: 0 6px 0 #020a10;
+  padding: 14px;
+}
+
+.upgrade-details.empty { border-style: dashed; }
+
+.upgrade-details h3 { margin: 0 0 6px; }
+.upgrade-details p { margin: 0 0 8px; color: var(--muted); }
+.upgrade-details small,
+.upgrade-details em { display: block; margin-bottom: 10px; color: var(--gold); font-style: normal; font-weight: 800; }
+.upgrade-details button { width: 100%; }
 
 .node-icon { font-size: 26px; line-height: 1; }
 .node-level {
@@ -346,19 +372,16 @@ textarea { width: 100%; min-height: 110px; background: #04101a; color: var(--tex
   font-size: 11px;
 }
 
-.upgrade-node.bought summary { border-color: var(--gold); }
-.upgrade-node.affordable summary { box-shadow: 0 5px 0 #020a10, 0 0 16px #f1b84b66; }
+.upgrade-node.bought { border-color: var(--gold); }
+.upgrade-node.affordable { box-shadow: 0 5px 0 #020a10, 0 0 16px #f1b84b66; }
 .upgrade-node.complete { opacity: .82; }
-.upgrade-node.complete summary { background: linear-gradient(180deg, #264536, #102a27); }
-.upgrade-node.cat-feed summary { border-color: #63b381; }
-.upgrade-node.cat-cult summary,
-.upgrade-node.cat-faith summary { border-color: var(--purple); }
-.upgrade-node.cat-tank summary { border-color: #9fc8c2; }
-.upgrade-node.cat-automation summary { border-color: #65bdd8; }
-.upgrade-node.cat-depth summary { border-color: #4788d9; }
-.upgrade-node.cat-madness summary,
-.upgrade-node.cat-ritual summary { border-color: #c36ad5; }
+.upgrade-node.complete { background: linear-gradient(180deg, #264536, #102a27); }
+.upgrade-node.cat-feed { border-color: #63b381; }
+.upgrade-node.cat-cult,
+.upgrade-node.cat-faith { border-color: var(--purple); }
+.upgrade-node.cat-tank { border-color: #9fc8c2; }
+.upgrade-node.cat-automation { border-color: #65bdd8; }
+.upgrade-node.cat-depth { border-color: #4788d9; }
+.upgrade-node.cat-madness,
+.upgrade-node.cat-ritual { border-color: #c36ad5; }
 
-@media (max-width: 560px) {
-  .upgrade-tree { min-width: 640px; }
-}
