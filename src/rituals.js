@@ -5,7 +5,7 @@ export const RITUALS = [
  {id:'harbourProcession',name:'Harbour Procession',description:'Gain followers and boost offerings.',cost:{faith:150,offerings:80},duration:90,cooldown:300,unlock:s=>s.stage>=6},
  {id:'thirdCandle',name:'The Third Candle',description:'+50% Shell from the next Moult.',cost:{faith:250,offerings:120},duration:600,cooldown:600,unlock:s=>s.stage>=5},
  {id:'tideLooksBack',name:'Tide That Looks Back',description:'+100% Depth for 120s.',cost:{faith:800,depth:250},duration:120,cooldown:420,unlock:s=>s.resources.depth>0},
- {id:'lowerTankDreams',name:'Dreams of the Lower Tank',description:'Gain Madness and boost all production.',cost:{depth:1500},duration:120,cooldown:500,unlock:s=>s.stage>=8||s.resources.madness>0},
+ {id:'lowerTankDreams',name:'Dreams of the Lower Tank',description:'Gain Madness and strongly boost all production and Madness.',cost:{depth:1500},duration:120,cooldown:500,unlock:s=>s.stage>=8||s.resources.madness>0},
  {id:'moonFeeding',name:'Moon Feeding',description:'A major lunar meal. Required for the final ascent.',cost:{madness:5000,faith:5000},duration:180,cooldown:900,unlock:s=>s.stage>=9},
  {id:'ninthMoult',name:'The Ninth Moult',description:'Final chain I.',cost:{shell:20,faith:10000},duration:30,cooldown:0,unlock:s=>s.stage>=9&&!s.finalChain.ninthMoult},
  {id:'openWorldTank',name:'Open The World Tank',description:'Final chain II.',cost:{depth:25000,madness:15000},duration:30,cooldown:0,unlock:s=>s.finalChain.ninthMoult&&!s.finalChain.openWorldTank},
